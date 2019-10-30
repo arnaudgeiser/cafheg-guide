@@ -9,7 +9,12 @@ public class FindSommeAllocationsNaissanceTS {
     public static BigDecimal savAnnee(int year) {
         System.out.println("Rechercher la somme des allocations de naissance");
         try(Connection connection = Application.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT V.DATE_VERSEMENT,A.MONTANT FROM VERSEMENTS V JOIN VERSEMENTS_NAISSANCE VN ON V.NUMERO=VN.FK_VERSEMENTS");
+            //FIXME: Ca ne fonctionne pas... Tant pis, on fera ça plus tard...
+            // Le modèle de données ne correspond pas au modèle de la base de données..
+            // Que faire?! Il manque la FK_VERSEMENTS dans la table ALLOCATION_NAISSANCe?!
+            // On laisse tomber la fonctionnalité?
+            // Bref... il sera sans doute pas utilisé! Prions!
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT V.DATE_VERSEMENT,AN.MONTANT FROM VERSEMENTS V JOIN ALLOCATIONS_NAISSANCE AN ON V.NUMERO=AN.FK_VERSEMENTS");
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Map<String, Object>> queryResult = resultSetToListOfMap(resultSet);
 
