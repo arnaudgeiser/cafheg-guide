@@ -13,6 +13,7 @@ import java.util.*;
 
 public class PDFAllocationsTS {
     public static ByteArrayOutputStream pdfAllocations(long allocataireId) {
+        System.out.println("Imprimer le PDF des allocations");
         try(Connection connection = Application.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT AL.NUMERO AS PARENT_ID, E.NUMERO AS ENFANT_ID, A.MONTANT FROM VERSEMENTS V JOIN VERSEMENTS_ALLOCATIONS VA ON V.NUMERO=VA.FK_VERSEMENTS JOIN ALLOCATIONS_ENFANTS AE ON AE.NUMERO=VA.FK_ALLOCATIONS_ENFANTS JOIN ALLOCATIONS A ON A.NUMERO=AE.FK_ALLOCATIONS JOIN ALLOCATAIRES AL ON AL.NUMERO=V.FK_ALLOCATAIRES JOIN ENFANTS E ON E.NUMERO=AE.FK_ENFANTS");
             ResultSet resultSet = preparedStatement.executeQuery();

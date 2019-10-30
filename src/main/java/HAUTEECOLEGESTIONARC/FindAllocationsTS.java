@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class FindAllocationsTS {
     public static List<Map<String,Object>> findAllocationsActuelles() {
+        System.out.println("Rechercher les configurations des allocations");
         try(Connection connection = Application.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ALLOCATIONS");
             ResultSet resultSet = preparedStatement.executeQuery();

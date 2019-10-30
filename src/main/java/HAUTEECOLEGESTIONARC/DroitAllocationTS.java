@@ -10,6 +10,7 @@ public class DroitAllocationTS {
 
 
     public static String getParentDroitAllocation(Map<String, Object> parameters) {
+        System.out.println("Déterminer le droit aux allocations");
         String eR = (String)parameters.getOrDefault("enfantResidance", "");
         Boolean p1AL = (Boolean)parameters.getOrDefault("parent1ActiviteLucrative", false);
         String p1Residence = (String)parameters.getOrDefault("parent1Residence", "");

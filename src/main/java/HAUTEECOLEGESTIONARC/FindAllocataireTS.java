@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class FindAllocataireTS {
     public static List<Map<String,Object>> findAllocataires(String start) {
+        System.out.println("Rechercher les allocataires");
         try(Connection connection = Application.getConnection()) {
             PreparedStatement preparedStatement;
             if(start==null) {

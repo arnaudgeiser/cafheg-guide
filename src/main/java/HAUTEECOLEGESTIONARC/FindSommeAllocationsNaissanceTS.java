@@ -7,6 +7,7 @@ import java.util.*;
 
 public class FindSommeAllocationsNaissanceTS {
     public static BigDecimal savAnnee(int year) {
+        System.out.println("Rechercher la somme des allocations de naissance");
         try(Connection connection = Application.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT V.DATE_VERSEMENT,A.MONTANT FROM VERSEMENTS V JOIN VERSEMENTS_NAISSANCE VN ON V.NUMERO=VN.FK_VERSEMENTS");
             ResultSet resultSet = preparedStatement.executeQuery();
